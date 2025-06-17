@@ -51,6 +51,7 @@
 #include <cstring>
 #include <assert.h>
 #include <cassert>
+#include <cstdint>
 
 //RAMIRO
 //#include "CommonDef.h"    //VTM 22.0
