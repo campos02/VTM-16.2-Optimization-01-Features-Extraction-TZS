@@ -124,6 +124,12 @@ int extracaoDados::flagBDOFmerge;
     int extracaoDados::cStruct_iBestX;
     int extracaoDados::cStruct_iBestY;
     int extracaoDados::executaTZS;
+    int extracaoDados::cStruct_subShiftMode;
+    uint64_t extracaoDados::cStruct_uiBestSad;
+    uint32_t extracaoDados::cStruct_uiBestDistance;
+    int extracaoDados::pu_chType;
+    int extracaoDados::cStruct_iRefStride;
+    int extracaoDados::tzs_iSearchRange;
     int extracaoDados::modoSplit;
     int extracaoDados::modoSplit_temp;
     //fim variáveis features
@@ -230,6 +236,12 @@ int extracaoDados::flagBDOFmerge;
     void extracaoDados::setcStruct_iBestX(int _cStruct_iBestX){ cStruct_iBestX = _cStruct_iBestX; }
     void extracaoDados::setcStruct_iBestY(int _cStruct_iBestY){ cStruct_iBestY = _cStruct_iBestY; }
     void extracaoDados::setexecutaTZS(int _executaTZS){ executaTZS = _executaTZS; }
+    void extracaoDados::setcStruct_subShiftMode(int _minSize){ cStruct_subShiftMode = _minSize; }
+    void extracaoDados::setcStruct_uiBestSad(uint64_t _uiBestSad){ cStruct_uiBestSad = _uiBestSad; }
+    void extracaoDados::setcStruct_uiBestDistance(uint32_t _uiBestDistance){ cStruct_uiBestDistance = _uiBestDistance; }
+    void extracaoDados::setPu_chType(int _chType){ pu_chType = _chType; }
+    void extracaoDados::setcStruct_iRefStride(int _iRefStride){ cStruct_iRefStride = _iRefStride; }
+    void extracaoDados::setTzs_iSearchRange(int _iSearchRange){ tzs_iSearchRange = _iSearchRange; }
     void extracaoDados::setModoSplit(int _modoSplit){ modoSplit = _modoSplit; }
     void extracaoDados::setModoSplit_temp(){ modoSplit_temp = modoSplit; }
     //fim funções features
@@ -340,7 +352,13 @@ int extracaoDados::flagBDOFmerge;
             << rui_SAD              <<";"        
             << cStruct_iBestX       <<";"        
             << cStruct_iBestY       <<";"
-            << executaTZS
+            << executaTZS           <<";"
+            << cStruct_subShiftMode          <<";"
+            << cStruct_uiBestSad     <<";"
+            << cStruct_uiBestDistance<<";"
+            << pu_chType            <<";"
+            << cStruct_iRefStride    <<";"
+            << tzs_iSearchRange
             <<endl;
            // inicializaFeatures();
     } 
@@ -453,7 +471,11 @@ int extracaoDados::flagBDOFmerge;
         rui_SAD = 111111;
         cStruct_iBestX = 111111;
         cStruct_iBestY = 111111;
-        executaTZS = 111111;
+        cStruct_subShiftMode = 111111;
+        cStruct_uiBestSad = 111111;
+        cStruct_uiBestDistance = 111111;
+        cStruct_iRefStride = 111111;
+        tzs_iSearchRange = 111111;
     }
 #endif
 
@@ -573,7 +595,13 @@ void extracaoDados::criarArquivo(){
                     "rui_SAD;"
                     "cStruct_iBestX;"
                     "cStruct_iBestY;"
-                    "executaTZS"
+                    "executaTZS;"
+                    "cStruct_subShiftMode;"
+                    "cStruct_uiBestSad;"
+                    "cStruct_uiBestDistance;"
+                    "pu_chType;"
+                    "cStruct_iRefStride;"
+                    "tzs_iSearchRange;"
                     <<endl;
 #endif
     

@@ -179,6 +179,13 @@
     static int cStruct_iBestX;
     static int cStruct_iBestY;
     static int executaTZS;
+    // VINICIUS: mais dados do TZS para extração
+    static int cStruct_subShiftMode;
+    static uint64_t cStruct_uiBestSad;
+    static uint32_t cStruct_uiBestDistance;
+    static int pu_chType;
+    static int cStruct_iRefStride;
+    static int tzs_iSearchRange;
 
 #endif
 
@@ -5550,7 +5557,13 @@ totalClockAffine += (fimClock_Affine - iniClock_Affine);
         extracaoDados::setrui_SAD(rui_SAD);  
         extracaoDados::setcStruct_iBestX(cStruct_iBestX);  
         extracaoDados::setcStruct_iBestY(cStruct_iBestY); 
-        extracaoDados::setexecutaTZS(executaTZS); 
+        extracaoDados::setexecutaTZS(executaTZS);
+        extracaoDados::setcStruct_subShiftMode(cStruct_subShiftMode);
+        extracaoDados::setcStruct_uiBestSad(cStruct_uiBestSad);
+        extracaoDados::setcStruct_uiBestDistance(cStruct_uiBestDistance);
+        extracaoDados::setPu_chType(pu_chType);
+        extracaoDados::setcStruct_iRefStride(cStruct_iRefStride);
+        extracaoDados::setTzs_iSearchRange(tzs_iSearchRange);
 
         extracaoDados::registraFeatures();
 
@@ -6560,6 +6573,7 @@ n_MVPrediction++;
   if (m_pcEncCfg->getUseHashME() && (m_currRefPicList == 0 || pu.cu->slice->getList1IdxToList0Idx(m_currRefPicIndex) < 0))
   {
     int minSize = min(pu.cu->lumaSize().width, pu.cu->lumaSize().height);
+
     if (minSize < 128 && minSize >= 4)
     {
       int numberOfOtherMvps = m_numHashMVStoreds[m_currRefPicList][m_currRefPicIndex];
@@ -6595,6 +6609,12 @@ n_MVPrediction++;
         rui_SAD = ruiSAD;
         cStruct_iBestX = cStruct.iBestX;
         cStruct_iBestY = cStruct.iBestY;
+        // VINICIUS: extrair subShiftMode, uiBestSad, chType, iRefStride, iSearchRange
+        cStruct_subShiftMode = cStruct.subShiftMode;
+        cStruct_uiBestSad = cStruct.uiBestSad;
+        pu_chType = (int)pu.chType;
+        cStruct_iRefStride = cStruct.iRefStride;
+        tzs_iSearchRange = m_iSearchRange;
   #endif
 
   const bool bBestCandidateZero = (cStruct.iBestX == 0) && (cStruct.iBestY == 0);
@@ -6746,6 +6766,11 @@ n_MVPrediction++;
     totalClockRasterSearch2 += (fimClockRasterSearch2 - iniClockRasterSearch2);
 
   }
+
+// VINICIUS: uiBestDistance
+#if EXTRA_FEATURES
+  cStruct_uiBestDistance = cStruct.uiBestDistance;
+#endif
     
   //RAMIRO: etapa Refinement
 

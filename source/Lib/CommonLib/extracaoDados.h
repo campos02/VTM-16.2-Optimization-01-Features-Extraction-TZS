@@ -136,6 +136,12 @@ public:
     static int cStruct_iBestX;  
     static int cStruct_iBestY;  
     static int executaTZS;
+    static int cStruct_subShiftMode;
+    static uint64_t cStruct_uiBestSad;
+    static uint32_t cStruct_uiBestDistance;
+    static int pu_chType;
+    static int cStruct_iRefStride;
+    static int tzs_iSearchRange;
     static int modoSplit;
     static int modoSplit_temp;
     //fim variáveis features
@@ -242,7 +248,13 @@ public:
     static void setcStruct_iBestX(int _cStruct_iBestX);   
     static void setcStruct_iBestY(int _cStruct_iBestY);  
     static void setexecutaTZS(int _executaTZS);
+    static void setcStruct_subShiftMode(int _subShiftMode);
+    static void setcStruct_uiBestSad(uint64_t _uiBestSad);
+    static void setcStruct_uiBestDistance(uint32_t _uiBestDistance);
+    static void setPu_chType(int _chType);
+    static void setcStruct_iRefStride(int _iRefStride);
     static void setModoSplit(int _modoSplit);
+    static void setTzs_iSearchRange(int _iSearchRange);
     static void setModoSplit_temp();  
     static void registraFeatures();
     static void inicializaFeatures();
