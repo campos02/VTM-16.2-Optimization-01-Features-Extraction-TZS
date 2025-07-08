@@ -6573,7 +6573,6 @@ n_MVPrediction++;
   if (m_pcEncCfg->getUseHashME() && (m_currRefPicList == 0 || pu.cu->slice->getList1IdxToList0Idx(m_currRefPicIndex) < 0))
   {
     int minSize = min(pu.cu->lumaSize().width, pu.cu->lumaSize().height);
-
     if (minSize < 128 && minSize >= 4)
     {
       int numberOfOtherMvps = m_numHashMVStoreds[m_currRefPicList][m_currRefPicIndex];
